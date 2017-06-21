@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: api
+  name: api-ingress
+spec:
+  # tls:		
+  # - hosts:		
+  #   - api.cescoferraro.xyz		
+  #   secretName: api-tls-secret
+  rules:
+  - host: api.cescoferraro.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api-svc
+          servicePort: 80

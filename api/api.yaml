@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: api
+  name: api-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      namespace: api
+      labels:
+        name: api-pods
+    spec:
+      containers:
+        - image: cescoferraro/api:latest
+          imagePullPolicy: Always
+          name: api
+          env:
+          - name: KUBERNETES
+            value: "true"
